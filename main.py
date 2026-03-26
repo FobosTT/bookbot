@@ -8,17 +8,20 @@ def get_book_text(path):
 
 
 def main(rel_path):
-    true_path = "/Users/fobostt/projects/bookbot/" + rel_path
+    true_path = "/home/omarchy/Projects/bootdev/bookbot/" + rel_path
     str = get_book_text(true_path)
     wc = get_word_count(str)
     char_count = get_char_count(str)
     sorted_list = sort_dict(char_count)
-    print("============== BOOKBOT ===============")
+    print("============ BOOKBOT ============")
     print("Analyzing book found in books/frankenstein.txt...")
-    print("-------------- Word Count ----------------")
+    print("----------- Word Count ----------")
     print(f"Found {wc} total words")
-    print("-------- Character count --------------")
+    print("--------- Character Count -------")
     for char in sorted_list:
+        if char["char"].isalpha():
+            print(f"{char["char"]}: {char["num"]}")
+    print("============= END ===============")
 
 
 main("books/frankenstein.txt")
